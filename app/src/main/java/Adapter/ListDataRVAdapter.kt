@@ -58,13 +58,13 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
             if(GlobalVar.listDataHewan.get(position).jenisHewan == "Ayam") {
                 Toast.makeText(
                     it.context,
-                    GlobalVar.listDataHewan.get(position).MakanBiji("Makan", "Biji"),
+                    GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan biji", "bijian!"),
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
                 Toast.makeText(
                     it.context,
-                    GlobalVar.listDataHewan.get(position).MakanRumput("Rumput"),
+                    GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan rerumputan!"),
                     Toast.LENGTH_SHORT
                 ).show()
             }

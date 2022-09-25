@@ -41,11 +41,11 @@ open class Hewan (
         return "";
      }
 
-    open fun MakanRumput (jenis: String ): String {
+    open fun Makan (jenis: String ): String {
         return "Makan $jenis";
     }
-    open fun MakanBiji (text1: String, text2: String ): String {
-        return "Makan $text1 $text2";
+    open fun Makan(text1: String, text2: String ): String {
+        return "$text1 $text2";
     }
 
 
