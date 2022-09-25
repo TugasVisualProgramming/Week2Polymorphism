@@ -41,37 +41,85 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
 
 //    digunakan untuk mengisi rycleview dan card view
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
-        holder.setData(listHewan[position])
-        holder.binding.deleteListButton.setOnClickListener {
-            GlobalVar.listDataHewan.removeAt(position)
-            Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
-            notifyDataSetChanged()
-        }
-        holder.binding.editListButton.setOnClickListener{
-            val myIntent = Intent(it.context, AddAnimalActivity::class.java)
-            myIntent.putExtra("position",position)
-            it.context.startActivity(myIntent)
-        }
 
-        holder.binding.suaraHewanButton.setOnClickListener{
-            Toast.makeText(it.context, GlobalVar.listDataHewan.get(position).Suara(), Toast.LENGTH_SHORT).show()
-        }
 
-        holder.binding.makanHewanButton.setOnClickListener{
-            if(GlobalVar.listDataHewan.get(position).jenisHewan == "Ayam") {
-                Toast.makeText(
-                    it.context,
-                    GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan biji", "bijian!"),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }else{
-                Toast.makeText(
-                    it.context,
-                    GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan rerumputan!"),
-                    Toast.LENGTH_SHORT
-                ).show()
+
+
+        if(GlobalVar.listFilterHewan.isEmpty()){
+//            delete
+            holder.setData(listHewan[position])
+            holder.binding.deleteListButton.setOnClickListener {
+                GlobalVar.listDataHewan.removeAt(position)
+                Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+                notifyDataSetChanged()
+            }
+//            edit
+            holder.binding.editListButton.setOnClickListener{
+                val myIntent = Intent(it.context, AddAnimalActivity::class.java)
+                myIntent.putExtra("position",position)
+                it.context.startActivity(myIntent)
+                notifyDataSetChanged()
+            }
+//            suara
+            holder.binding.suaraHewanButton.setOnClickListener{
+                Toast.makeText(it.context, GlobalVar.listDataHewan.get(position).Suara(), Toast.LENGTH_SHORT).show()
+            }
+//            makan
+            holder.binding.makanHewanButton.setOnClickListener{
+                if(GlobalVar.listDataHewan.get(position).jenisHewan == "Ayam") {
+                    Toast.makeText(
+                        it.context,
+                        GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan biji", "bijian!"),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+                    Toast.makeText(
+                        it.context,
+                        GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan rerumputan!"),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }else{
+//            delete
+            holder.setData(listHewan[position])
+            holder.binding.deleteListButton.setOnClickListener {
+                GlobalVar.listFilterHewan.removeAt(position)
+                GlobalVar.listDataHewan.removeAt(position)
+                Toast.makeText(it.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+                notifyDataSetChanged()
+            }
+//            edit
+            holder.binding.editListButton.setOnClickListener{
+                val myIntent = Intent(it.context, AddAnimalActivity::class.java)
+                    myIntent.putExtra("position", position)
+
+                it.context.startActivity(myIntent)
+                notifyDataSetChanged()
+            }
+            holder.binding.suaraHewanButton.setOnClickListener{
+                Toast.makeText(it.context, GlobalVar.listFilterHewan.get(position).Suara(), Toast.LENGTH_SHORT).show()
+            }
+            holder.binding.makanHewanButton.setOnClickListener{
+                if(GlobalVar.listFilterHewan.get(position).jenisHewan == "Ayam") {
+                    Toast.makeText(
+                        it.context,
+                        GlobalVar.listFilterHewan.get(position).Makan("Kamu memberi makan hewan dengan biji", "bijian!"),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+                    Toast.makeText(
+                        it.context,
+                        GlobalVar.listFilterHewan.get(position).Makan("Kamu memberi makan hewan dengan rerumputan!"),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }
+
+
+
+
 
 
 

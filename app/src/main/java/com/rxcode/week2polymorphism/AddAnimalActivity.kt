@@ -59,7 +59,13 @@ class AddAnimalActivity : AppCompatActivity() {
         if(position!=-1){
             viewBind.tambahHewan.setText("Ubah Data Movie")
             viewBind.simpanHewan.setText("Simpan")
-            val hewan= GlobalVar.listDataHewan[position]
+            val hewan =
+                if(GlobalVar.listFilterHewan.isEmpty()){
+                    GlobalVar.listDataHewan[position]
+                } else {
+                    GlobalVar.listFilterHewan[position]
+                }
+
             Display(hewan)
         }
     }

@@ -79,6 +79,7 @@ class MainActivity : AppCompatActivity() , CardListener {
         }
 
         viewBind.SemuaFilterButton.setOnClickListener{
+            onRestart();
             viewBind.listDataRV.adapter  = ListDataRVAdapter(GlobalVar.listDataHewan,this)
             onRestart();
         }
