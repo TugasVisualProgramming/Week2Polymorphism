@@ -93,10 +93,11 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
             holder.binding.editListButton.setOnClickListener{
                 val myIntent = Intent(it.context, AddAnimalActivity::class.java)
                     myIntent.putExtra("position", position)
-
                 it.context.startActivity(myIntent)
                 notifyDataSetChanged()
             }
+
+
             holder.binding.suaraHewanButton.setOnClickListener{
                 Toast.makeText(it.context, GlobalVar.listFilterHewan.get(position).Suara(), Toast.LENGTH_SHORT).show()
             }
