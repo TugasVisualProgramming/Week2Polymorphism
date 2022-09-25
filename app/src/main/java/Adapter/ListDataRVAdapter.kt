@@ -99,19 +99,19 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
 
 
             holder.binding.suaraHewanButton.setOnClickListener{
-                Toast.makeText(it.context, GlobalVar.listDataHewan.get(position).Suara(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(it.context, GlobalVar.listFilterHewan.get(position).Suara(), Toast.LENGTH_SHORT).show()
             }
             holder.binding.makanHewanButton.setOnClickListener{
-                if(GlobalVar.listDataHewan.get(position).jenisHewan == "Ayam") {
+                if(GlobalVar.listFilterHewan.get(position).jenisHewan == "Ayam") {
                     Toast.makeText(
                         it.context,
-                        GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan biji", "bijian!"),
+                        GlobalVar.listFilterHewan.get(position).Makan("Kamu memberi makan hewan dengan biji", "bijian!"),
                         Toast.LENGTH_SHORT
                     ).show()
                 }else{
                     Toast.makeText(
                         it.context,
-                        GlobalVar.listDataHewan.get(position).Makan("Kamu memberi makan hewan dengan rerumputan!"),
+                        GlobalVar.listFilterHewan.get(position).Makan("Kamu memberi makan hewan dengan rerumputan!"),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
