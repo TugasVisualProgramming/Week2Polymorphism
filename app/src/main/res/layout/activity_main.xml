@@ -19,14 +19,62 @@
         app:title="DATA HEWAN"
         app:titleTextColor="#FFFFFF" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BackButTambahHewan" />
+
+    <Button
+        android:id="@+id/KambingFilterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Kambing"
+        app:layout_constraintStart_toEndOf="@+id/AyamiFilterButton"
+        app:layout_constraintTop_toBottomOf="@+id/BackButTambahHewan" />
+
+    <Button
+        android:id="@+id/AyamiFilterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Ayam"
+        app:layout_constraintStart_toEndOf="@+id/SapiFilterButton"
+        app:layout_constraintTop_toBottomOf="@+id/BackButTambahHewan" />
+
+    <Button
+        android:id="@+id/SapiFilterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Sapi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BackButTambahHewan" />
+
+    <Button
+        android:id="@+id/SemuaFilterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:text="Semua"
+        app:layout_constraintStart_toEndOf="@+id/KambingFilterButton"
+        app:layout_constraintTop_toBottomOf="@+id/BackButTambahHewan" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listData_RV"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BackButTambahHewan" />
+        app:layout_constraintTop_toBottomOf="@+id/SapiFilterButton" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addData_FAB"
