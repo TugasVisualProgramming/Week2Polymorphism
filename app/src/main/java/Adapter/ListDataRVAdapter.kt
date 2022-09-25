@@ -18,6 +18,7 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
     RecyclerView.Adapter<ListDataRVAdapter.viewHolder>() {
     private var position = -1
 
+//    digunakan untuk manage isi card
     class viewHolder (val itemView: View, val cardListener1: CardListener): RecyclerView.ViewHolder(itemView) {
         //Bind
         val binding = CardHewanBinding.bind(itemView)
@@ -31,12 +32,14 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
 
     }
 
+//    digunakan untuk membuat view holder dalam rycyle view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.card_hewan, parent, false)
         return viewHolder(view, cardListener)
     }
 
+//    digunakan untuk mengisi rycleview dan card view
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         holder.setData(listHewan[position])
         holder.binding.deleteListButton.setOnClickListener {
@@ -74,7 +77,7 @@ class ListDataRVAdapter(val listHewan: ArrayList<Hewan>, val cardListener: CardL
 
     }
 
-
+//digunakan untuk mengambil jumlah rycyleview
     override fun getItemCount(): Int {
         return listHewan.size
     }

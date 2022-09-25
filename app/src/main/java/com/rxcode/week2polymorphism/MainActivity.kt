@@ -6,6 +6,8 @@ import Interface.CardListener
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global
+import android.widget.Toast
 import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rxcode.week2polymorphism.databinding.ActivityMainBinding
@@ -14,7 +16,7 @@ import com.rxcode.week2polymorphism.databinding.CardHewanBinding
 class MainActivity : AppCompatActivity() , CardListener {
 
     private lateinit var viewBind: ActivityMainBinding
-    private lateinit var viewBind1: CardHewanBinding
+
     private var position=-1
 
     //    private val listDataHewan = ArrayList<Hewan>()
@@ -49,6 +51,37 @@ class MainActivity : AppCompatActivity() , CardListener {
     override fun onResume() {
         super.onResume()
         adapter.notifyDataSetChanged()
+        viewBind.AyamiFilterButton.setOnClickListener{
+            GlobalVar.listFilterHewan.clear();
+          for (item in  GlobalVar.listDataHewan.filter { it.jenisHewan == "Ayam"  }){
+             GlobalVar.listFilterHewan.add(item)
+          }
+            viewBind.listDataRV.adapter  = ListDataRVAdapter(GlobalVar.listFilterHewan,this)
+            onRestart();
+        }
+
+        viewBind.SapiFilterButton.setOnClickListener{
+            GlobalVar.listFilterHewan.clear();
+            for (item in  GlobalVar.listDataHewan.filter { it.jenisHewan == "Sapi"  }){
+                GlobalVar.listFilterHewan.add(item)
+            }
+            viewBind.listDataRV.adapter  = ListDataRVAdapter(GlobalVar.listFilterHewan,this)
+            onRestart();
+        }
+
+        viewBind.KambingFilterButton.setOnClickListener{
+            GlobalVar.listFilterHewan.clear();
+            for (item in  GlobalVar.listDataHewan.filter { it.jenisHewan == "Kambing"  }){
+                GlobalVar.listFilterHewan.add(item)
+            }
+            viewBind.listDataRV.adapter  = ListDataRVAdapter(GlobalVar.listFilterHewan,this)
+            onRestart();
+        }
+
+        viewBind.SemuaFilterButton.setOnClickListener{
+            viewBind.listDataRV.adapter  = ListDataRVAdapter(GlobalVar.listDataHewan,this)
+            onRestart();
+        }
     }
 
 

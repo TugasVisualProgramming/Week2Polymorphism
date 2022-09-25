@@ -7,6 +7,8 @@ class GlobalVar {
     companion object {
         val STORAGE_PERMISSION_CODE: Int=100
         val READ_EXTERNAL_STORAGE: Int = 100
+        val listFilterHewan = ArrayList<Hewan>()
         val listDataHewan = ArrayList<Hewan>()
+
     }
 }

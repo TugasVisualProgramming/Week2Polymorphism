@@ -1,4 +1,5 @@
 package Interface
 
 interface CardListener {
+
 }
